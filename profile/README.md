@@ -97,7 +97,7 @@ By embracing the cross-distribution compatibility of this framework, you can lev
 
 ### Networked Audio
 
-> [Ray Session](https://github.com/Houston4444/RaySession): A powerful session manager for audio applications, allowing you to control and manage multiple applications from a single interface.
+[Ray Session](https://github.com/Houston4444/RaySession): A powerful session manager for audio applications, allowing you to control and manage multiple applications from a single interface.
 
 > [JackTrip](https://www.jacktrip.com/): An application that enables high-quality, low-latency audio streaming over the internet.
 
