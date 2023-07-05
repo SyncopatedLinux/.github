@@ -10,18 +10,13 @@ The purpose of this project is to automate and standardize the configuration of 
 
 This project is designed with compatibility for older hardware in mind. By implementing a resource-efficient configuration, utilizing lightweight components, applying optimization techniques, and conducting thorough hardware compatibility testing, the project aims to provide an optimized audio production platform that can run effectively on both older and newers hardware. This enables users to leverage real-time audio processing capabilities and enjoy a streamlined and productive audio production experience
 
-## Install
-
-```bash
-wget -O bootstrap.sh http://syncopated.hopto.org/bootstrap_v2.sh
-sudo bash bootstrap.sh
-```
-## Features
 
 ### Configuration Management:
+
 Ansible allows us to define and manage the desired state of the audio production environment. This includes configuring software applications, system settings, and network parameters.
 
 ### Task Automation:
+
 With Ansible's versatile automation capabilities, we can automate routine tasks involved in the audio production workflow. This includes launching applications, setting up project templates, managing audio file conversions, installing plugins and more.
 
 ### Scalability and Flexibility:
@@ -98,7 +93,7 @@ Please note that while this framework provides a solid foundation, thorough test
 
 By embracing the cross-distribution compatibility of this framework, you can leverage the benefits of Configuration Management and Task Automation for audio production workflows on a wide range of Linux distributions, empowering users to optimize their systems regardless of their preferred Linux platform.
 
-# Featured Software
+# FOSS Applications
 
 ### Networked Audio
 
