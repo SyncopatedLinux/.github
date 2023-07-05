@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project focuses on utilizing Ansible, an open-source configuration management and task automation tool, to streamline an audio production workflow. The target environment consists of Linux-based devices running Free and Open-Source Software (FOSS) applications.
+The target environment consists of Linux-based devices running Free and Open-Source Software (FOSS) applications.
 
 ## Purpose
 
