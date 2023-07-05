@@ -6,9 +6,9 @@ The target environment consists of Linux-based devices running Free and Open-Sou
 
 ## Purpose
 
-The purpose of this project is to automate and standardize the configuration of various components involved in an audio production workflow. By using Ansible, we aim to simplify the setup process, ensure consistency across different devices, and enhance productivity for audio professionals working in a Linux environment.
+The purpose of this project is to automate and standardize the configuration of various components involved in an open source audio production. Using Ansible, we aim to simplify the setup process, ensure consistency across different devices, and enhance productivity for audio professionals working in a Linux environment.
 
-This project is designed with compatibility for older hardware in mind. By implementing a resource-efficient configuration, utilizing lightweight components, applying optimization techniques, and conducting thorough hardware compatibility testing, the project aims to provide an optimized audio production workflow that can run effectively on both older and newers hardware. This enables users to leverage real-time audio processing capabilities and enjoy a streamlined and productive audio production experience.
+This project is designed with compatibility for older hardware in mind. By implementing a resource-efficient configuration, utilizing lightweight components, applying optimization techniques, and conducting thorough hardware compatibility testing, the project aims to provide an optimized audio production platform that can run effectively on both older and newers hardware. This enables users to leverage real-time audio processing capabilities and enjoy a streamlined and productive audio production experience
 
 ## Install
 
