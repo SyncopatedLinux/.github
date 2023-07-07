@@ -8,9 +8,6 @@ The target environment consists of Linux host running Free and Open-Source Softw
 
 The purpose of this project is to automate and standardize the configuration of various components involved in an open source audio production. Using Ansible, we aim to simplify the setup process, ensure consistency across different devices, and enhance productivity for audio professionals working in a Linux environment.
 
-This project is designed with compatibility for older hardware in mind. By implementing a resource-efficient configuration, utilizing lightweight components, applying optimization techniques, and conducting thorough hardware compatibility testing, the project aims to provide an optimized audio production platform that can run effectively on both older and newers hardware. This enables users to leverage real-time audio processing capabilities and enjoy a streamlined and productive audio production experience
-
-
 ### Configuration Management:
 
 Ansible allows us to define and manage the desired state of the audio production environment. This includes configuring software applications, system settings, and network parameters.
@@ -19,79 +16,6 @@ Ansible allows us to define and manage the desired state of the audio production
 
 With Ansible's versatile automation capabilities, we can automate routine tasks involved in the audio production workflow. This includes launching applications, setting up project templates, managing audio file conversions, installing plugins and more.
 
-### Scalability and Flexibility:
-Ansible's modular architecture enables scalability, making it suitable for both small-scale and large-scale audio production setups. Additionally, its flexibility allows for easy customization and adaptation to specific requirements.
-
-### Real-Time Optimization:
-To optimize the OS for real-time audio using Ansible, the following steps are typically involved:
-
-- **User and Group Configuration**: The user is added to the "audio" group, ensuring appropriate permissions for accessing audio-related resources.
-
-- **Security and Resource Limits**: A configuration file is copied to set real-time priority (rtprio), memory locking (memlock), and nice values for the audio group. These settings help prioritize audio processing and ensure resources are allocated effectively.
-
-- **Timer Permissions**: Assigns appropriate permissions for system timers (rtc0 and hpet) to the "audio" group in the udev rules configuration.
-
-- **Tuned Service (optional)**: The "tuned" service is disabled, which can be useful for fine-tuning system settings based on specific performance profiles. The installation of a modified "realtime" profile is also performed, enabling further optimizations.
-
-- **RTIRQ and RTKit Configuration**: The RTIRQ defaults file is copied to configure real-time IRQ thread priorities, improving the handling of audio-related interrupts. The RTKit configuration file and systemd service file are installed, providing a framework for managing real-time tasks and resource allocations.
-
-- **CPU Power Management**: The default configuration file for CPU power management (cpupower) is templated, allowing customization of CPU frequency scaling and power-saving settings. The cpupower service is enabled, ensuring that the configured power management settings are applied. This task is skipped for QEMU-based systems.
-
-- **IRQ Balance Service**: The irqbalance service is disabled to prevent automatic IRQ balancing, which can interfere with real-time audio processing.
-
-- **System Control Parameters (sysctl)**: A configuration file is copied to set sysctl parameters, which allow fine-grained control over various system settings related to real-time audio performance.
-
-Sysctl configurations can have a direct impact on audio quality and performance. Here's how each configuration relates to audio:
-
-- **Swappiness**: By reducing the kernel's tendency to swap, a lower swappiness value (30) ensures that audio data remains in memory, minimizing delays caused by disk I/O and improving overall responsiveness during audio processing.
-
-- **VFS Cache Pressure**: A lower value (50) for vfs_cache_pressure helps retain directory and inode objects in the VFS cache, which can enhance the performance of file access operations in audio applications, such as reading and loading audio files.
-
-- **Dirty Ratio and Background Ratio**: By setting lower values (3 and 5, respectively), the kernel writes out dirty data more promptly. This ensures that audio data and buffers are written to disk without significant delay, reducing the chances of audio glitches or dropouts.
-
-- **Page-Cluster**: Disabling the page-cluster behavior (value of 0) can be beneficial for audio workloads. It prevents unnecessary read-ahead operations from swap space, minimizing disk activity and potential latency issues during audio streaming or real-time processing.
-
-- **Max Map Count**: Increasing the maximum number of memory map areas (16777216) allows audio applications to utilize more memory efficiently, accommodating large sound libraries, plugins, and virtual instruments.
-
-- **Real-Time Scheduling and HPET Frequency**: Configurations related to real-time scheduling and HPET frequency can enhance the precision and accuracy of time-sensitive audio operations, such as real-time synthesis, audio processing with low-latency requirements, and synchronization of audio streams.
-
-Optimizing these sysctl configurations for audio-related tasks helps ensure that the system maintains stable performance, reduces audio latency, minimizes audio artifacts, and provides a smooth and uninterrupted audio experience.
-
-### Workflow Enhancement with i3 Window Manager:
-
-To further enhance the audio production workflow, this project incorporates the usage of the i3 window manager. i3 is a dynamic tiling window manager known for its efficiency, flexibility, and keyboard-driven interface. By integrating i3 into the audio production environment, users can experience improved multitasking, efficient window management, and streamlined navigation.
-
-The integration of i3 window manager offers several advantages for optimizing the audio production workflow:
-
-- **Efficient Space Utilization**: i3's tiling approach automatically arranges windows in a non-overlapping manner, maximizing screen space utilization. For example, the DAW can be assigned a fullscreen workspace, while the mixer controls and audio plugins can be arranged in a horizontal or vertical split layout. This ensures that essential applications are readily accessible
-
-- **Keyboard-Centric Workflow**: i3 is designed to be controlled primarily through keyboard shortcuts, allowing users to perform various actions quickly and efficiently. By eliminating the need for constant mouse movement and clicking, audio professionals can navigate between applications, switch workspaces, and manage windows effortlessly, resulting in increased productivity and a smoother workflow.
-
-- **Workspace Management**: i3 provides a flexible workspace management system, allowing users to create multiple virtual workspaces that can be dedicated to specific tasks or projects. Each workspace can contain different application windows, providing a clean and organized environment for audio production activities. Switching between workspaces is seamless, enabling users to focus on specific tasks without distractions.
-
-- **Customization and Scriptability**: i3 offers extensive customization options, allowing users to personalize their window manager according to their preferences. Users can define keybindings, configure window behavior, and create scripts to automate common tasks, further streamlining the audio production workflow and adapting the window manager to specific needs.
-
-- **Keybindings and Shortcuts**: Users can configure custom keybindings to perform common actions, such as launching applications, switching between workspaces, resizing windows, or controlling audio playback. These keybindings can be tailored to individual preferences, making the workflow faster and more intuitive.
-
-- **Workspace Organization**: By utilizing i3's workspace management capabilities, users can assign specific workspaces for different stages of the audio production workflow. For instance, one workspace can be dedicated to composing and arranging, while another focuses on mixing and mastering. This allows for a smooth transition between tasks and reduces clutter.
-
-By incorporating the i3 window manager into the audio production workflow, users can benefit from efficient space utilization, a keyboard-centric approach, optimized workspace management, and extensive customization options.
-
-### Resource-Efficient Configuration:
-
-To ensure compatibility and performance on older hardware, the project conducts thorough testing and validation on a range of hardware configurations. By testing the project on various older machines with different specifications, any compatibility issues or performance bottlenecks can be identified and addressed. This testing process helps fine-tune the configurations and optimizations specifically for older hardware setups, ensuring a smooth and efficient audio production experience.
-
-### Cross-Distribution Compatibility
-
-This framework is designed to be versatile and adaptable, making it compatible with most major Linux distributions. While the initial implementation focuses on Arch Linux, it can serve as a solid foundation for extending support to other distributions as well. The modular structure and use of Ansible allow for easy customization and configuration for different operating systems.
-
-To adapt this framework to a specific Linux distribution, you may need to make adjustments to the playbook, configuration files, and package management. Distribution-specific tasks, package names, and package managers can be incorporated to ensure seamless integration with different distributions.
-
-The playbook structure follows best practices and can serve as a starting point for creating distribution-specific playbooks. By leveraging the flexibility of Ansible and the extensive documentation and community support available for various Linux distributions, you can extend the framework's capabilities to match your desired distribution.
-
-Please note that while this framework provides a solid foundation, thorough testing and validation are essential when adapting it to different distributions. Differences in package availability, default configurations, and system behavior may require additional adjustments to achieve optimal performance and compatibility.
-
-By embracing the cross-distribution compatibility of this framework, you can leverage the benefits of Configuration Management and Task Automation for audio production workflows on a wide range of Linux distributions, empowering users to optimize their systems regardless of their preferred Linux platform.
 
 # FOSS Applications
 
