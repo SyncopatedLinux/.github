@@ -2,7 +2,7 @@
 
 ## Overview
 
-The target environment consists of Linux-based devices running Free and Open-Source Software (FOSS) applications.
+The target environment consists of Linux host running Free and Open-Source Software (FOSS) applications.
 
 ## Purpose
 
